@@ -11,8 +11,8 @@ end
 
 %w{ 
   dop_base
-  dop_php
   dop_nginx
+  php
   redisio
 }.each do |ressource|
   depends ressource

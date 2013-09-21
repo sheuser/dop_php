@@ -19,7 +19,6 @@ default['php']['packages'] = [
   'php5-ldap',
   'php5-imap'
 ]
-default['php']['secure_functions'] = false
 
 default['php']['php_ini']['php']['short_open_tag'] = "On"
 default['php']['php_ini']['php']['serialize_precision'] = 100
