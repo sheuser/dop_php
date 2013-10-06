@@ -49,8 +49,10 @@ default['php']['php-fpm_conf']['global']['emergency_restart_threshold'] = "10"
 default['php']['php-fpm_conf']['global']['emergency_restart_interval'] = "1m"
 default['php']['php-fpm_conf']['global']['process_control_timeout'] = "10s"
 
-default['php']['fpm']['workers']['user'] = node['nginx']['user']
-default['php']['fpm']['workers']['group'] = node['nginx']['group']
+default['php']['fpm']['user'] = "apache"
+default['php']['fpm']['group'] =  "apache"
+default['php']['fpm']['workers']['user'] = node['php']['fpm']['user']
+default['php']['fpm']['workers']['group'] = node['php']['fpm']['group']
 default['php']['fpm']['workers']['ip_address'] = "127.0.0.1"
 default['php']['fpm']['workers']['port'] = 9000
 default['php']['fpm']['workers']['max_children'] = 46
