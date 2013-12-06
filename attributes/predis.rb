@@ -2,7 +2,7 @@
 # redis #
 # # # # #
 default['redisio']['mirror'] = "http://download.redis.io/releases"
-default['redisio']['version'] = '2.6.16'
+default['redisio']['version'] = '2.8.2'
 default['redisio']['servers'] = [
   {
     "name" => "master",
