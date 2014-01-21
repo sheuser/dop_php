@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.3  (January 21, 2014)
+
+* upgrade redis to 2.8.4
+
 ## 1.0.2  (December 6, 2013)
 
 * upgrade redis to 2.8.2
