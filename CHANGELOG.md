@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.4  (February 7, 2014)
+
+* fixes to run on Chef 11.10
+
 ## 1.0.3  (January 21, 2014)
 
 * upgrade redis to 2.8.4

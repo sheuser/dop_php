@@ -12,6 +12,7 @@ default['redisio']['servers'] = [
     "loglevel" => "notice"
   }
 ]
+default['redisio']['default_settings']['logfile'] = '/var/log/redis.log'
 
 # # # # # #
 # predis  #

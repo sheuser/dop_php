@@ -32,6 +32,7 @@ end
 
 # configure php
 template "#{node['php']['fpm_conf_dir']}/php.ini" do
+  cookbook "dop_php"
   source "php.ini-production.erb"
   variables(
   :php => node['php']['php_ini']
