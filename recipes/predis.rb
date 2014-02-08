@@ -50,3 +50,13 @@ template "#{node['php']['ext_conf_dir']}/redis.ini" do
   variables(:name => "redis", :directives => [])
   not_if "php -m | grep redis"
 end
+
+logrotate_app "redis" do
+  cookbook "logrotate"
+  path "#{node["redis"]["log_dir"]}/*.log"
+  frequency "daily"
+  rotate 2
+  options ["missingok", "compress", "delaycompress", "notifempty", "sharedscripts"]
+  postrotate "[ -f #{node["redis"]["base_piddir"]}/master ] && kill -USR1 `cat #{node["redis"]["base_piddir"]}/master`"
+  create "640 #{node['redisio']['default_settings']['user']} #{node['redisio']['default_settings']['group']}"
+end
