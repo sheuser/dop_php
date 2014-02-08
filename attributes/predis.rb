@@ -12,8 +12,7 @@ default['redisio']['servers'] = [
     "loglevel" => "notice"
   }
 ]
-default['redisio']['default_settings']['log_dir'] = "/var/log/redis"
-default['redisio']['default_settings']['logfile'] = "#{node['redisio']['default_settings']['log_dir']}/master.log"
+default['redisio']['default_settings']['logfile'] = '/var/log/redis.log'
 
 # # # # # #
 # predis  #
