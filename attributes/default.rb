@@ -2,6 +2,7 @@
 # default #
 # # # # # #
 include_attribute "dop_php::dotdeb"
+include_attribute "dop_php::ioncube"
 
 default['php']['packages'] = [ 
   'php5-cgi',

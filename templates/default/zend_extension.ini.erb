@@ -1,0 +1,4 @@
+zend_extension=<%= @name %>.so
+<% @directives.each do |k,v| -%>
+<%= "#{@name}.#{k}=\"#{v}\"" %>
+<% end -%>

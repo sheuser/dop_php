@@ -8,6 +8,7 @@ It essentially does the following adjustments:
 * use php-fpm
 * installs [redis](http://www.redis.io) extensions ([phpredis](https://github.com/nicolasff/phpredis))
 * install proper oauth support
+* optional: install ioncube loaders
 
 Requirements
 ============
