@@ -43,24 +43,8 @@ template "#{node['php']['fpm_conf_dir']}/php.ini" do
   notifies :restart, "service[php5-fpm]"
 end
 
-# oauth support in curl !
-package "libcurl3-dev"
-
 # pear
 package "libpcre3-dev"
 execute "upgrade-pear" do
   command "pear upgrade pear | cat" # piping through cat appears to be the only sane way of stopping pear returning exit code 1 on no upgrade
 end
-
-php_pear "oauth" do
-  action :install
-end
-
-file "#{node['php']['fpm']['conf_dir']}/oauth.ini" do
-  content "extension=oauth.so"
-  mode 0644
-  action :create
-end
-
-package "liboauth-php"
-package "liboauth-dev"

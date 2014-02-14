@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.6  (February 14, 2014)
+
+* make oauth optional
+
 ## 1.0.5  (February 14, 2014)
 
 * integrate recipe for installing [ioncube loaders](http://www.ioncube.com/loaders.php)
