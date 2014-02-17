@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.7  (February 17, 2014)
+
+* fix oauth recipe
+
 ## 1.0.6  (February 14, 2014)
 
 * make oauth optional
