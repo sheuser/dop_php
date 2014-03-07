@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.8  (March 7, 2014)
+
+* raise php-fpm worker settings
+
 ## 1.0.7  (February 17, 2014)
 
 * fix oauth recipe
