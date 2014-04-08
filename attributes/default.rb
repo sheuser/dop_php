@@ -42,9 +42,10 @@ default['php']['php_ini']['opcache']['opcache.enable'] = "On"
 # php-fpm #
 # # # # # #
 default['php']['fpm']['conf_dir'] = "#{node['php']['fpm_conf_dir']}/conf.d"
+default['php']['fpm']['log_dir'] = "/var/log/php5-fpm"
 
 default['php']['php-fpm_conf']['global']['pid'] = node['php']['fpm_pidfile']
-default['php']['php-fpm_conf']['global']['error_log'] = node['php']['fpm_logfile']
+default['php']['php-fpm_conf']['global']['error_log'] = "#{node['php']['fpm']['log_dir']}/php5-fpm.log"
 default['php']['php-fpm_conf']['global']['log_level'] = "notice"
 default['php']['php-fpm_conf']['global']['emergency_restart_threshold'] = "10"
 default['php']['php-fpm_conf']['global']['emergency_restart_interval'] = "1m"

@@ -24,6 +24,7 @@ pkg.each do |ppkg|
 end
 
 directory node['php']['fpm']['conf_dir']
+directory node['php']['fpm']['log_dir']
 directory node['php']['ext_conf_dir']
 
 include_recipe "dop_php::predis"
