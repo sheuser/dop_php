@@ -2,7 +2,7 @@
 # redis #
 # # # # #
 default['redisio']['mirror'] = "http://download.redis.io/releases"
-default['redisio']['version'] = '2.8.4'
+default['redisio']['version'] = '2.8.8'
 default['redisio']['servers'] = [
   {
     "name" => "master",
@@ -12,7 +12,6 @@ default['redisio']['servers'] = [
     "loglevel" => "notice"
   }
 ]
-default['redisio']['default_settings']['logfile'] = '/var/log/redis.log'
 
 # # # # # #
 # predis  #

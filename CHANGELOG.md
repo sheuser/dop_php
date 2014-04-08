@@ -2,6 +2,15 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.9  (April 8, 2014)
+
+* switch to redisio 2.0 cookbook
+* properly include directive to ioncube if applicable (must be in php.ini before [PHP] block)
+* remove dependency to php::fpm and php::module_common
+* raise default redis version to 2.8.8
+* remove static redis log path (since redisio 2.0 can handle that now)
+* remove dependency to dop_base at it is not needed
+
 ## 1.0.8  (March 7, 2014)
 
 * raise php-fpm worker settings

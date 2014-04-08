@@ -3,7 +3,7 @@
 # Recipe:: predis
 #
 
-include_recipe "redisio::install"
+include_recipe "redisio"
 include_recipe "redisio::enable"
 
 # symlink redis-cli into /usr/bin

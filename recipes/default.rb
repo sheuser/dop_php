@@ -11,8 +11,17 @@ apt_repository "debian-non-free" do
 end
 
 include_recipe "php"
-include_recipe "php::module_common"
-include_recipe "php::fpm"
+
+pkg = value_for_platform_family(
+    [ 'rhel', 'fedora' ] => %w{ php-common php-cli php-mbstring php-gd php-intl php-pspell php-mcrypt php-soap php-sqlite php-xml php-xmlrpc php-fpm }, 
+    'debian' => %w{ php5-curl php5-json php5-cli php5-gd php5-intl php5-pspell php5-mcrypt php5-mhash php5-sqlite php5-xsl php5-xmlrpc php5-fpm }
+)
+
+pkg.each do |ppkg| 
+  package ppkg do
+    action :install
+  end
+end
 
 directory node['php']['fpm']['conf_dir']
 directory node['php']['ext_conf_dir']
@@ -33,9 +42,9 @@ end
 # configure php
 template "#{node['php']['fpm_conf_dir']}/php.ini" do
   cookbook "dop_php"
-  source "php.ini-production.erb"
+  source "php.ini.erb"
   variables(
-  :php => node['php']['php_ini']
+    :php => node['php']['php_ini']
   )
   owner "root"
   group "root"

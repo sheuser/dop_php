@@ -26,12 +26,3 @@ bash 'extract_ioncube' do
   not_if "test `cat #{node['php']['ioncube']['home']}/VERSION` = #{node['php']['ioncube']['checksum']}"
   creates "#{node['php']['ioncube']['home']}/VERSION"
 end
-
-template "#{node['php']['ext_conf_dir']}/ioncube.ini" do
-  source "zend_extension.ini.erb"
-  owner "root"
-  group "root"
-  mode "0644"
-  variables(:name => "#{node['php']['ioncube']['home']}/#{node['php']['ioncube']['version']}", :directives => [])
-  not_if "php -m | grep ioncube"
-end
