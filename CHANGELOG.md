@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.10 (April 14, 2014)
+
+* make sure redis is only listening on the loop-back interface 127.0.0.1
+
 ## 1.0.9  (April 8, 2014)
 
 * switch to redisio 2.0 cookbook

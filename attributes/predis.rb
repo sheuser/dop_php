@@ -6,6 +6,7 @@ default['redisio']['version'] = '2.8.8'
 default['redisio']['servers'] = [
   {
     "name" => "master",
+    "address" => "127.0.0.1",
     "port" => "6379",
     "unixsocket" => "/var/run/redis/redis.sock",
     "unixsocketperm" => "755",
