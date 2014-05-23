@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.11 (May 23, 2014)
+
+* correct opcache.revalidate_freq
+
 ## 1.0.10 (April 14, 2014)
 
 * make sure redis is only listening on the loop-back interface 127.0.0.1

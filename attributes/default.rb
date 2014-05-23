@@ -37,6 +37,7 @@ default['php']['php_ini']['php']['html_errors'] = "Off"
 default['php']['php_ini']['date']['date.timezone'] = "Europe/Berlin"
 default['php']['php_ini']['session']['session.cookie_lifetime'] = 3600
 default['php']['php_ini']['opcache']['opcache.enable'] = "On"
+default['php']['php_ini']['opcache']['opcache.revalidate_freq'] = 0
 
 # # # # # #
 # php-fpm #
