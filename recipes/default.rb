@@ -50,7 +50,6 @@ template "#{node['php']['fpm_conf_dir']}/php.ini" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[php5-fpm]"
 end
 
 # pear
