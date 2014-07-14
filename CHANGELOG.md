@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.13 (July 14, 2014)
+
+* fix oauth and redis zend_extensions
+
 ## 1.0.12 (May 24, 2014)
 
 * do not hardcode php5-fpm service notification

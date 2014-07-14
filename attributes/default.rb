@@ -37,12 +37,19 @@ default['php']['php_ini']['php']['html_errors'] = "Off"
 default['php']['php_ini']['date']['date.timezone'] = "Europe/Berlin"
 default['php']['php_ini']['session']['session.cookie_lifetime'] = 3600
 default['php']['php_ini']['opcache']['opcache.enable'] = "On"
-default['php']['php_ini']['opcache']['opcache.revalidate_freq'] = 0
+default['php']['php_ini']['opcache']['opcache.revalidate_freq'] = 60
+default['php']['php_ini']['opcache']['opcache.memory_consumption'] = 512
+default['php']['php_ini']['opcache']['opcache.max_accelerated_files'] = 4000
+default['php']['php_ini']['opcache']['opcache.fast_shutdown'] = 1
+default['php']['php_ini']['opcache']['opcache.save_comments'] = 1
+
 
 # # # # # #
 # php-fpm #
 # # # # # #
+default['php']['dir'] = "/etc/php5"
 default['php']['fpm']['conf_dir'] = "#{node['php']['fpm_conf_dir']}/conf.d"
+default['php']['fpm']['mods_dir'] = "#{node['php']['dir']}/mods-available"
 default['php']['fpm']['log_dir'] = "/var/log/php5-fpm"
 
 default['php']['php-fpm_conf']['global']['pid'] = node['php']['fpm_pidfile']

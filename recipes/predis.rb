@@ -42,11 +42,15 @@ bash "make & install phpredis" do
   not_if "php -m | grep redis"
 end
 
-template "#{node['php']['ext_conf_dir']}/redis.ini" do
+template "#{node['php']['fpm']['mods_dir']}/redis.ini" do
   source "extension.ini.erb"
   owner "root"
   group "root"
   mode "0644"
   variables(:name => "redis", :directives => [])
   not_if "php -m | grep redis"
+end
+
+link "#{node['php']['fpm']['conf_dir']}/20-redis.ini" do
+  to "#{node['php']['fpm']['mods_dir']}/redis.ini"
 end

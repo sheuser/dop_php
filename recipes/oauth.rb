@@ -14,13 +14,17 @@ php_pear "oauth" do
   action :install
 end
 
-template "#{node['php']['ext_conf_dir']}/oauth.ini" do
+template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do
   source "extension.ini.erb"
   owner "root"
   group "root"
-  mode "0644"
+  mode 0644
   variables(:name => "oauth", :directives => [])
   not_if "php -m | grep oauth"
+end
+
+link "#{node['php']['fpm']['conf_dir']}/20-oauth.ini" do
+  to "#{node['php']['fpm']['mods_dir']}/oauth.ini"
 end
 
 package "liboauth-php"

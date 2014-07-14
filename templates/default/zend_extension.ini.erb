@@ -1,4 +1,4 @@
-zend_extension=<%= @name %>.so
+zend_extension = <%= %x[ php -i | grep extension_dir | awk 'NR==1 {print $(NF)}' ].strip %>/<%= @name %>.so
 <% @directives.each do |k,v| -%>
 <%= "#{@name}.#{k}=\"#{v}\"" %>
 <% end -%>
