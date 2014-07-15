@@ -11,7 +11,7 @@ php_pear_channel 'pecl.php.net' do
 end
 
 php_pear "oauth" do
-  action :install
+	action ( !(`pear list | grep oauth`.empty?) ) ? :upgrade : :install
 end
 
 template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do

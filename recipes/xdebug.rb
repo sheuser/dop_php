@@ -5,13 +5,12 @@
 
 include_recipe "build-essential"
 
-# install/upgrade xdebug
-package = "xdebug"
-
-php_pear package do
+php_pear "xdebug" do
+  if node['php']['xdebug']['version'] != "latest"
     version "#{node['php']['xdebug']['version']}"
-    #upgrade when package is installed and latest version is required
-    action ( !(`pear list | grep #{package}`.empty?) and node['php']['xdebug']['version'] == "latest" ) ? :upgrade : :install
+  end
+  #upgrade when package is installed and latest version is required
+  action ( !(`pear list | grep xdebug`.empty?) and node['php']['xdebug']['version'] == "latest" ) ? :upgrade : :install
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
@@ -28,7 +27,7 @@ link "#{node['php']['fpm']['conf_dir']}/20-xdebug.ini" do
   only_if node['php']['xdebug']['enabled']
 end
 
-file node['php']['xdebug']['remote_log'] do
+file node['php']['xdebug']['ini']['remote_log'] do
   owner "root"
   group "root"
   mode 0777
