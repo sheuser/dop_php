@@ -4,7 +4,7 @@ license          "Apache 2.0"
 description      "installs/configures dop_php"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name             "dop_php"
-version          "1.0.13"
+version          "1.0.15"
 
 %w{ debian }.each do |os|
   supports os

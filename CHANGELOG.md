@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 1.0.14 (July 15, 2014)
+
+* add xdebug
+
 ## 1.0.13 (July 14, 2014)
 
 * fix oauth and redis zend_extensions
