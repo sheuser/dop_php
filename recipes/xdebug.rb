@@ -15,7 +15,7 @@ php_pear package do
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
-  source "extension.ini.erb"
+  source "zend_extension.ini.erb"
   owner "root"
   group "root"
   mode "0644"
