@@ -3,12 +3,15 @@
 # Recipe:: default
 #
 
-apt_repository "debian-non-free" do
-  uri "http://ftp.de.debian.org/debian"
-  distribution node['dotdeb']['distribution']
-  components ['non-free']
-  action :add
-end
+case node["platform"]
+  when "debian"
+    apt_repository "debian-non-free" do
+      uri "http://ftp.de.debian.org/debian"
+          distribution node['lsb']['codename']
+      components ['non-free']
+      action :add
+    end
+  end
 
 include_recipe "php"
 
@@ -50,6 +53,17 @@ template "#{node['php']['fpm_conf_dir']}/php.ini" do
   owner "root"
   group "root"
   mode 0644
+end
+
+service "php5-fpm" do
+  case node["platform"]
+  when "ubuntu"
+    if node["platform_version"].to_f >= 9.10
+      provider Chef::Provider::Service::Upstart
+    end
+  end
+  supports :start => true, :stop => true, :reload => true, :restart => true, :status => true
+  action [ :enable ]
 end
 
 # pear
