@@ -5,9 +5,13 @@
 
 include_recipe "build-essential"
 
+php_pear 'xdebug' do
+  action :install
+  not_if "php -m | grep xdebug"
+end
 execute "install-xdebug" do
   command "pecl install xdebug"
-  not_if "php -m | grep xdebug"
+  not_if "pecl list | grep xdebug"
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
