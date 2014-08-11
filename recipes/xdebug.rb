@@ -6,11 +6,7 @@
 include_recipe "build-essential"
 
 php_pear "xdebug" do
-  if node['php']['xdebug']['version'] != "latest"
-    version "#{node['php']['xdebug']['version']}"
-  end
-  #upgrade when package is installed and latest version is required
-  action ( !(`pear list | grep xdebug`.empty?) and node['php']['xdebug']['version'] == "latest" ) ? :upgrade : :install
+  action :install
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
