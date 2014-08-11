@@ -5,8 +5,8 @@
 
 include_recipe "build-essential"
 
-php_pear "xdebug" do
-  action :install
+execute "install-xdebug" do
+  command "pecl install xdebug"
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
