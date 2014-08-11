@@ -12,6 +12,7 @@ end
 
 execute "install-oauth" do
   command "pecl install oauth"
+  not_if "php -m | grep oauth"
 end
 
 template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do

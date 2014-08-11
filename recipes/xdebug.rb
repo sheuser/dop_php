@@ -7,6 +7,7 @@ include_recipe "build-essential"
 
 execute "install-xdebug" do
   command "pecl install xdebug"
+  not_if "php -m | grep xdebug"
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
