@@ -17,3 +17,6 @@ MethodLength:
 
 RescueModifier:
   Enabled: false
+
+AbcSize:
+  Enabled: false
