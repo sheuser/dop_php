@@ -2,7 +2,7 @@
 ; Local modifications will be overwritten.
 ;
 ; The php configuration file.
-<% if node.recipe?('dop_php::ioncube') %>
+<% if node.recipe?('php::ioncube') %>
 zend_extension=<%= node['php']['ioncube']['home'] %>/<%= node['php']['ioncube']['version'] %>.so
 <% end %>
 <% @php.keys.each do |category| %>

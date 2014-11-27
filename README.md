@@ -1,34 +1,81 @@
-Description
-===========
+dop_php
+========
+[![GitHub tag](http://img.shields.io/github/tag/ffuenf/dop_php.svg)][tag]
+[![Build Status](http://img.shields.io/travis/ffuenf/dop_php.svg)][travis]
+[![Gittip](http://img.shields.io/gittip/arosenhagen.svg)][gittip]
 
-This cookbook is intended as wrapper-cookbook around the opscode community [php](https://github.com/opscode-cookbooks/php) cookbook when used as [dop](http://ffuenf.github.io/dop) component.
+[tag]: https://github.com/ffuenf/dop_php/tags
+[travis]: https://travis-ci.org/ffuenf/dop_php
+[gittip]: https://www.gittip.com/arosenhagen
 
-It essentially does the following adjustments:
-* use sources from [dotdeb](http://www.dotdeb.org)
-* use php-fpm
-* installs [redis](http://www.redis.io) extensions ([phpredis](https://github.com/nicolasff/phpredis))
-* optional: install ioncube loaders
-* optional: install oauth
+dop_php installs php and supports several modules in sub-recipes.
+opposed to the [php community cookbook](https://github.com/opscode-cookbooks/php), it supports fpm, composer out-of-the-box
 
-Requirements
-============
 
-Frameworks
----------
-* [dop](http://ffuenf.github.io/dop)
+Dependencies
+------------
 
-Cookbooks
----------
-* [php](https://github.com/ffuenf/chef-php.git)
-* [git](http://github.com/opscode-cookbooks/git)
+This cookbook depends on the following community cookbooks.
+
+* apt
+* git
+* php
+* build-essential
+* dotdeb
+* composer
 * [redisio](https://github.com/brianbianco/redisio)
 
+Platform
+--------
+
+The following platforms are supported and tested:
+
+* Debian 6.x
+* Debian 7.x
+* Ubuntu 14.04.x
+
+Other Debian family distributions are assumed to work.
+
+Development
+-----------
+1. Fork the repository from GitHub.
+2. Clone your fork to your local machine:
+
+        $ git clone git@github.com:USER/dop_php.git
+
+3. Create a git branch
+
+        $ git checkout -b my_bug_fix
+
+4. **Write tests**
+5. Make your changes/patches/fixes, committing appropriately
+6. Run the tests: `rake style`, `rake spec`, `rake integration:vagrant`
+7. Push your changes to GitHub
+8. Open a Pull Request
+
+Testing
+-------
+
+The following Rake tasks are provided for automated testing of the cookbook:
+
+```
+$ rake -T
+rake integration:cloud    # Run Test Kitchen with cloud plugins
+rake integration:vagrant  # Run Test Kitchen with Vagrant
+rake spec                 # Run ChefSpec examples
+rake style                # Run all style checks
+rake style:chef           # Lint Chef cookbooks
+rake style:ruby           # Run Ruby style checks
+rake travis               # Run all tests on Travis
+```
+See TESTING.md for detailed information.
+
 License and Author
-==================
+------------------
 
 - Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
 
-- Copyright:: 2013-2014, ffuenf
+- Copyright:: 2014, ffuenf
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

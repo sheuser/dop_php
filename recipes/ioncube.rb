@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: dop_php
+# Cookbook Name:: php
 # Recipe:: ioncube
 #
 

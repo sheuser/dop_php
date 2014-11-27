@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.0 (November 22, 2014)
+
+* Complete rewrite of dop_php
+
 ## 1.0.15 (July 19, 2014)
 
 * compatibility with ubuntu

@@ -1,4 +1,16 @@
-extension=<%= @name %>.so
+<% 
+def ext_dir
+  cmd = Mixlib::ShellOut.new('pecl config-get ext_dir')
+  cmd.run_command
+  cmd.error!
+  cmd.stdout.strip
+end
+%>
+<% if @zend %>
+zend_extension = <%= ext_dir %>/<%= @name %>.so
+<% else %>
+extension = <%= ext_dir %>/<%= @name %>.so
+<% end %>
 <% @directives.each do |k,v| -%>
 <%= "#{@name}.#{k}=\"#{v}\"" %>
 <% end -%>
