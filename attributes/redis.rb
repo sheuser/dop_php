@@ -1,5 +1,5 @@
 # # # # #
 # redis #
 # # # # #
-default['phpredis']['url'] = 'git://github.com/nicolasff/phpredis.git'
+default['phpredis']['url'] = 'https://github.com/phpredis/phpredis'
 default['phpredis']['revision'] = 'master'

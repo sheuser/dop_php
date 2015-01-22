@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.1 (January 22, 2015)
+
+* update phpredis git repo url
+* update test-suite
+
 ## 2.0.0 (November 22, 2014)
 
 * Complete rewrite of dop_php

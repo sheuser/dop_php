@@ -1,6 +1,4 @@
-require 'serverspec'
-set :backend, :exec
-set :path, '/sbin:/usr/sbin:/usr/local/sbin:$PATH'
+require_relative '../../../kitchen/data/spec_helper'
 
 describe file('/etc/apt/sources.list.d/dotdeb.list'), if: os[:family] == 'Debian' do
   it { should be_file }
