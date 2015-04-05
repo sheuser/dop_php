@@ -152,6 +152,8 @@ awk '{
   }
 }'
 ```
+For simplicity you can run `./travis_encrypt.sh ~/.digitalocean/id_do` from
+within the project folder to encrypt all needed ENV variables at once.
 
 Then in .travis.yml:
 ```
