@@ -27,3 +27,6 @@ end
 link "#{node['php']['fpm']['ext_conf_dir']}/20-gnupg.ini" do
   to "#{node['php']['fpm']['mods_dir']}/gnupg.ini"
 end
+link "#{node['php']['conf_dir']}/conf.d/20-gnupg.ini" do
+  to "#{node['php']['fpm']['mods_dir']}/gnupg.ini"
+end

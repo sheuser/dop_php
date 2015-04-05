@@ -32,6 +32,11 @@ link "#{node['php']['fpm']['ext_conf_dir']}/20-xdebug.ini" do
   only_if node['php']['xdebug']['enabled']
 end
 
+link "#{node['php']['conf_dir']}/conf.d/20-xdebug.ini" do
+  to "#{node['php']['fpm']['mods_dir']}/xdebug.ini"
+  only_if node['php']['xdebug']['cli']['enabled']
+end
+
 directory node['php']['xdebug']['ini']['remote_log_dir']
 file node['php']['xdebug']['ini']['remote_log'] do
   owner 'root'

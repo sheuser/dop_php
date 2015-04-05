@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.2 (April 5, 2015)
+
+* add redis, oauth, xdebug to php-cli
+
 ## 2.0.1 (January 22, 2015)
 
 * update phpredis git repo url

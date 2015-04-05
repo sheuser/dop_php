@@ -3,6 +3,7 @@
 # # # # # #
 default['php']['xdebug']['version'] = 'latest'
 default['php']['xdebug']['enabled'] = false
+default['php']['xdebug']['cli']['enabled'] = false
 
 default['php']['xdebug']['ini']['auto_trace'] = 'Off'
 default['php']['xdebug']['ini']['cli_color'] = '0'

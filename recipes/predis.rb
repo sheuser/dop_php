@@ -57,3 +57,7 @@ end
 link "#{node['php']['fpm']['ext_conf_dir']}/20-redis.ini" do
   to "#{node['php']['fpm']['mods_dir']}/redis.ini"
 end
+
+link "#{node['php']['conf_dir']}/conf.d/20-redis.ini" do
+  to "#{node['php']['fpm']['mods_dir']}/redis.ini"
+end
