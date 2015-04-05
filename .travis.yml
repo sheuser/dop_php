@@ -2,15 +2,19 @@ language: ruby
 sudo: false
 bundler_args: "--without kitchen_vagrant --without development"
 rvm:
-- 2.2.0
+- 2.2.1
 before_install:
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
 - cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode > ~/.ssh/id_do.pem
 script:
 - bundle exec rubocop
 - bundle exec foodcritic -f any .
+- bundle exec kitchen test $KITCHEN_INSTANCE
+after_script:
+- bundle exec kitchen destroy
 env:
   global:
+  - KITCHEN_YAML=.kitchen.cloud.yml
   - secure: VH53hRbuMymhJi3/2c2asK60p/q11IhHokE+Ujo7f/Kk7Gb2SYT/ZVPAQar4Gwlj6fqbFbY4/hL73KmYpsHuHTBAIn3cLKP/i2HD8dcgj7yPyYzs7DbK4hjT3M+uQv0CCxV+2Xi9JFnDA8JSrF4dmrq/mItBTXSqK8xfJ4Kj86s=
   - secure: h2vTSPFQIFibAH/OPYpr58S9VcYztGnKDiuuSjmOqU+cAMU/lNx6jlozg5v6IzxSMsT2IzMBJXsMmm9hur0NvIDiJCD1AVSNui/3tDuLZFxeL1XewKYYEcmGLyxQBaJJMv4/S+mAvZL9RdJ8JfbHTd+oxhMDbyhg31IQ6jldH8k=
   - secure: Ci8QUgrB9m8gSghEZaQzn2oinmIyWPATEZNJ1dwWFrPBflVY24RGYsSKLuMNQUad1S36PxktXxRVWtauVQ9XwSdPkcvT7ulXD3ky/hkGOKFEU9/svXTVfMhsLEPxDd1K3g1GJ63xmH/6AvZVdCLzFHQ7zAdr9pexjyIwesGFr3Q=
@@ -41,6 +45,9 @@ env:
   - secure: BmZfujqH3T8HjSOoA9QqqPeqgcCagWRQwfnpiOnzBlMoLazGC1ue/KGmpYcipixWux9Bf6f//Jjhw4f6VTwjgrJzWPyTA2ycagMpp0N90BAKmtnkE9XF/201kYOEjSn4spYBB+nODaEFn51p9XsOs7ytczjudKyXMuZDibj8Ofs=
   - secure: bgnoFJ9Di4mN6UZ84Ca3yiUBNpzDXHM8agEI2pXbTV4+wOkeX0tXPQEyqLCMaO+D16gqSeLCyJoIHCPqCZisGajutDEiWy42a8fzHn+/JL25SGRB2Arhds0KDz6rpS5dxtcn7b98oymzOGL1g+Xr0FFm/Ucz2q03Eg0ErF/eBp4=
   - secure: dVF5o4JByq7LBPBAlCalklRo6fYtc1YgJ5mRZI6nOyuNo0knUUW51Paj/Whatwc9x2NqQ/J1qm4J8jvn5nwCg5+E7II+rU26YvAUhdAW2hoSBz2m/Q2wYW8OKyxOzxhLO02IW6+8DURrwyKXSEu7zcHc+M444o9It8SpRgywsvc=
+  matrix:
+  - KITCHEN_INSTANCE='default-debian-7-0-x64'
+  - KITCHEN_INSTANCE='default-ubuntu-14-04-x64'
 notifications:
   slack:
     secure: Ort9Jxk2Hdau/3CpVQfRY2s8RQ1fduQ+8mK+pKk0aVVCCQojjk7+WdgjvskJEoKEWKi5ES9E+9YosBAcnyYyVHG+pDRkeiODrgKYq5bgKLnoehEpSQmNJpGHKxHgPvX9hJOaElHI4rfWo4zStGH1G28+GIogSrICWpztW5sMKk0=
