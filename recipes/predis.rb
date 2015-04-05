@@ -13,9 +13,7 @@ include_recipe 'redisio'
 include_recipe 'redisio::enable'
 
 # build dependencies
-package 'make' do
-  action :install
-end
+package 'build-essential'
 
 directory '/tmp/phpredis' do
   owner 'root'

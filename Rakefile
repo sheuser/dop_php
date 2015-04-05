@@ -25,7 +25,6 @@ RSpec::Core::RakeTask.new(:spec)
 
 # Integration tests. Kitchen.ci
 namespace :integration do
-
   desc 'Run Test Kitchen with Vagrant'
   task :vagrant do
     Kitchen.logger = Kitchen.default_file_logger
@@ -45,7 +44,6 @@ namespace :integration do
       end
     end
   end
-
 end
 
 desc 'Run all tests on Travis'

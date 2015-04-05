@@ -59,12 +59,10 @@ assertions about the resource_collection.
 Integration Testing
 -------------------
 Integration testing is performed by Test Kitchen. Test Kitchen will
-use either the Vagrant driver, various cloud drivers or docker
-containers via [dvm](https://github.com/fnichol/dvm) or 
-[boot2docker](http://boot2docker.io) to instantiate machines and apply
-cookbooks. After a successful converge, tests are uploaded and ran out
-of band of Chef. Tests should be designed to ensure that a recipe has
-accomplished its goal.
+use either the Vagrant driver or various cloud drivers to instantiate 
+machines and apply cookbooks. After a successful converge, tests are
+uploaded and ran out of band of Chef. Tests should be designed to
+ensure that a recipe has accomplished its goal.
 
 Integration Testing using Vagrant
 ---------------------------------
@@ -116,7 +114,7 @@ At the time of this writing, you cannot find the numerical values
 needed for your SSH_KEY_IDS from the GUI. Instead, you will need to
 access the API from the command line.
 
-    curl -L 'https://api.digitalocean.com/ssh_keys/?client_id=your_bits_here&api_key=your_bits_here'
+    curl -X GET -H 'Content-Type: application/json' -H 'Authorization: Bearer YOUR_API_KEY' "https://api.digitalocean.com/v2/account/keys"
 
 Words about .travis.yml
 -----------------------
@@ -145,7 +143,7 @@ them into ENV variables, then digging them out in the
 
 Here is an AWK script to do the encoding.
 ```
-base64 ~/.ssh/id_do.pem | \
+base64 ~/.digitalocean/id_do | \
 awk '{
   j=0;
   for( i=1; i<length; i=i+90 ) {
