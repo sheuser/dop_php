@@ -157,5 +157,5 @@ Then in .travis.yml:
 ```
 before_install:
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
-- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.ssh/id_do.pem
+- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.digitalocean/id_do
 ```
