@@ -12,7 +12,6 @@ end
 
 group :kitchen_common do
   gem 'chef'
-  gem 'knife-solo'
   gem 'test-kitchen'
   gem 'serverspec', '~> 2.0'
 end
@@ -26,13 +25,5 @@ group :kitchen_cloud do
 end
 
 group :development do
-  gem 'ruby_gntp'
-  gem 'growl'
-  gem 'rb-fsevent'
-  gem 'guard'
-  gem 'guard-kitchen'
-  gem 'guard-foodcritic'
-  gem 'guard-rspec'
-  gem 'guard-rubocop'
   gem 'rake'
 end

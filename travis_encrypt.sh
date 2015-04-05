@@ -10,9 +10,8 @@ fi
  
 travis login --auto
 
-travis encrypt DIGITALOCEAN_API_KEY=${DIGITALOCEAN_API_KEY} --add
+travis encrypt DIGITALOCEAN_ACCESS_TOKEN=${DIGITALOCEAN_ACCESS_TOKEN} --add
 travis encrypt DIGITALOCEAN_SSH_KEY_IDS=${DIGITALOCEAN_SSH_KEY_IDS} --add
-travis encrypt DIGITALOCEAN_SSH_KEY_PATH='~/.ssh/id_do' --add
 
 base64 ${SSH_KEY_PATH} | \
 awk '{

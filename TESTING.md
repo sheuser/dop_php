@@ -93,7 +93,6 @@ Examples of environment variables being set in ```~/.bash_profile```:
 # digital_ocean
 export DIGITALOCEAN_ACCESS_TOKEN='your_bits_here'
 export DIGITALOCEAN_SSH_KEY_IDS=['your_bits_here']
-export DIGITALOCEAN_SSH_KEY_PATH='your_bits_here'
 ```
 
 Integration tests using cloud drivers can be performed with either
@@ -132,7 +131,6 @@ and add them to the .travis.yml.
 gem install travis
 travis encrypt DIGITALOCEAN_ACCESS_TOKEN='your_bits_here' --add
 travis encrypt DIGITALOCEAN_SSH_KEY_IDS=['your_bits_here'] --add
-travis encrypt DIGITALOCEAN_SSH_KEY_PATH='~/.ssh/id_do.pem' --add
 ```
 
 The second part is a little more complicated. Travis ENV variables are
