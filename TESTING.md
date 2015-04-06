@@ -141,7 +141,7 @@ them into ENV variables, then digging them out in the
 
 Here is an AWK script to do the encoding.
 ```
-base64 ~/.digitalocean/id_do | \
+base64 ~/.ssh/travis_id_do | \
 awk '{
   j=0;
   for( i=1; i<length; i=i+90 ) {
@@ -150,12 +150,12 @@ awk '{
   }
 }'
 ```
-For simplicity you can run `./travis_encrypt.sh ~/.digitalocean/id_do` from
+For simplicity you can run `./travis_encrypt.sh ~/.ssh/travis_id_do` from
 within the project folder to encrypt all needed ENV variables at once.
 
 Then in .travis.yml:
 ```
 before_install:
 - echo -n $DO_KEY_CHUNK_{0..30} >> ~/.ssh/id_do.base64
-- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.digitalocean/id_do
+- cat ~/.ssh/id_do.base64 | tr -d ' ' | base64 --decode >  ~/.ssh/travis_id_do
 ```
