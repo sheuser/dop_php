@@ -14,6 +14,7 @@ platforms:
     size: 512mb
     digitalocean_access_token: <%= ENV['DIGITALOCEAN_ACCESS_TOKEN'] %>
     ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: ~/.ssh/id_do
 
 - name: ubuntu-14-04-x64
   driver_plugin: digitalocean
@@ -24,6 +25,7 @@ platforms:
     size: 512mb
     digitalocean_access_token: <%= ENV['DIGITALOCEAN_ACCESS_TOKEN'] %>
     ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: ~/.ssh/id_do
 
 suites:
 - name: default
