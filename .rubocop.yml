@@ -20,3 +20,6 @@ RescueModifier:
 
 AbcSize:
   Enabled: false
+
+RegexpLiteral:
+  Enabled: false
