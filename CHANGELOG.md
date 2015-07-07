@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.3 (July 7, 2015)
+
+* add php 5.6 option for ubuntu installs
+
 ## 2.0.2 (April 5, 2015)
 
 * add redis, oauth, xdebug to php-cli

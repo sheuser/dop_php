@@ -6,8 +6,13 @@
 include_recipe 'apt'
 include_recipe 'dotdeb' if node['platform'] == 'debian'
 
+if node['php']['version'] == '5.6'
+  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu'
+else
+  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
+end
 apt_repository 'php' do
-  uri 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
+  uri apt_repo_uri
   distribution node['lsb']['codename']
   components ['main']
   keyserver 'keyserver.ubuntu.com'

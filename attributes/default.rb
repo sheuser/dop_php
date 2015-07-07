@@ -7,6 +7,7 @@ default['php']['ext_conf_dir'] = '/etc/php5/conf.d'
 default['php']['session_dir'] = '/var/lib/php5/session'
 default['php']['upload_dir'] = '/var/lib/php5/uploads'
 
+default['php']['version'] = '5.5'
 default['php']['packages'] = %w(
   php5-cgi
   php5
