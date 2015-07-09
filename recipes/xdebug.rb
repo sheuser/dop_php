@@ -11,7 +11,7 @@ php_pear 'xdebug' do
 end
 execute 'install-xdebug' do
   command 'pecl install xdebug'
-  not_if { 'pecl list | grep xdebug' }
+  not_if 'pecl list | grep xdebug'
 end
 
 template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
@@ -24,7 +24,7 @@ template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
     zend: true,
     directives: node['php']['xdebug']['ini']
   )
-  not_if { 'php -m | grep xdebug' }
+  not_if 'php -m | grep xdebug'
 end
 
 link "#{node['php']['fpm']['ext_conf_dir']}/20-xdebug.ini" do
