@@ -7,7 +7,7 @@ include_recipe 'build-essential'
 
 php_pear 'xdebug' do
   action :install
-  not_if { 'php -m | grep xdebug' }
+  not_if 'php -m | grep xdebug'
 end
 execute 'install-xdebug' do
   command 'pecl install xdebug'
