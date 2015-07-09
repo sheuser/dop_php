@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.4 (July 9, 2015)
+
+* fix not honoured only_if statements (falsly installs/activates xdebug)
+
 ## 2.0.3 (July 7, 2015)
 
 * add php 5.6 option for ubuntu installs

@@ -26,7 +26,7 @@ git '/tmp/phpredis' do
   repository node['phpredis']['url']
   revision node['phpredis']['revision']
   action :sync
-  not_if 'php -m | grep redis'
+  not_if { 'php -m | grep redis' }
 end
 
 bash 'make & install phpredis' do
@@ -36,7 +36,7 @@ bash 'make & install phpredis' do
   ./configure
   make && make install
   EOF
-  not_if 'php -m | grep redis'
+  not_if { 'php -m | grep redis' }
 end
 
 template "#{node['php']['fpm']['mods_dir']}/redis.ini" do
@@ -49,7 +49,7 @@ template "#{node['php']['fpm']['mods_dir']}/redis.ini" do
     zend: false,
     directives: []
   )
-  not_if 'php -m | grep redis'
+  not_if { 'php -m | grep redis' }
 end
 
 link "#{node['php']['fpm']['ext_conf_dir']}/20-redis.ini" do

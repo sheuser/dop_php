@@ -23,6 +23,6 @@ bash 'extract_ioncube' do
     mv #{extract_path}/ioncube #{node['php']['ioncube']['home']}
     echo '#{node['php']['ioncube']['checksum']}' > #{node['php']['ioncube']['home']}/VERSION
   EOH
-  not_if "test `cat #{node['php']['ioncube']['home']}/VERSION` = #{node['php']['ioncube']['checksum']}"
+  not_if { "test `cat #{node['php']['ioncube']['home']}/VERSION` = #{node['php']['ioncube']['checksum']}" }
   creates "#{node['php']['ioncube']['home']}/VERSION"
 end
