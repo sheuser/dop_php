@@ -20,9 +20,6 @@ apt_repository 'php' do
   only_if { platform?('ubuntu') }
 end
 
-# Make sure the Apt cache is updated
-resources(execute: 'apt-get-update').run_action(:run)
-
 node['php']['packages'].each do |pkg|
   package pkg do
     action :install

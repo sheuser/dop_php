@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.5 (October 27, 2015)
+
+* fix compatibility to apt community cookbook
+
 ## 2.0.4 (July 9, 2015)
 
 * fix not honoured only_if statements (falsly installs/activates xdebug)
