@@ -62,7 +62,8 @@ action :update do
       description = "update pear channel #{@new_resource}"
       converge_by(description) do
         Chef::Log.info("Updating pear channel #{@new_resource}")
-        shell_out!("pear channel-update #{@new_resource.channel_name}")
+        cmd = Mixlib::ShellOut.new("pear channel-update #{@new_resource.channel_name}")
+        cmd.run_command
       end
     end
   end
@@ -87,8 +88,10 @@ end
 private
 
 def exists?
-  shell_out!("pear channel-info #{@current_resource.channel_name}")
+  cmd = Mixlib::ShellOut.new("pear channel-info #{@current_resource.channel_name}")
+  cmd.run_command
+  cmd.error!
   true
-  rescue Mixlib::ShellOut::ShellCommandFailed
-    false
+rescue Mixlib::ShellOut::ShellCommandFailed
+  false
 end
