@@ -1,7 +1,7 @@
 # # # # # #
 # xdebug  #
 # # # # # #
-default['php']['xdebug']['version'] = 'latest'
+default['php']['xdebug']['version'] = '2.3.2'
 default['php']['xdebug']['enabled'] = false
 default['php']['xdebug']['cli']['enabled'] = false
 

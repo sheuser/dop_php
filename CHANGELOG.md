@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.6 (November 9, 2015)
+
+* pin xdebug version
+
 ## 2.0.5 (October 27, 2015)
 
 * fix compatibility to apt community cookbook

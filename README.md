@@ -2,11 +2,11 @@ dop_php
 ========
 [![GitHub tag](http://img.shields.io/github/tag/ffuenf/dop_php.svg)][tag]
 [![Build Status](http://img.shields.io/travis/ffuenf/dop_php.svg)][travis]
-[![Gittip](http://img.shields.io/gittip/arosenhagen.svg)][gittip]
+[![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)][paypal_donate]
 
 [tag]: https://github.com/ffuenf/dop_php/tags
 [travis]: https://travis-ci.org/ffuenf/dop_php
-[gittip]: https://www.gittip.com/arosenhagen
+[paypal_donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J2PQS2WLT2Y8W&item_name=dop%3a%20dop_php&item_number=dop_php&currency_code=EUR
 
 dop_php installs php and supports several modules in sub-recipes.
 opposed to the [php community cookbook](https://github.com/opscode-cookbooks/php), it supports fpm, composer out-of-the-box
@@ -32,6 +32,7 @@ The following platforms are supported and tested:
 
 * Debian 6.x
 * Debian 7.x
+* Debian 8.x
 * Ubuntu 14.04.x
 
 Other Debian family distributions are assumed to work.

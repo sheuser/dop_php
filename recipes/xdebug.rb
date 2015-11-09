@@ -10,7 +10,7 @@ php_pear 'xdebug' do
   not_if 'php -m | grep xdebug'
 end
 execute 'install-xdebug' do
-  command 'pecl install xdebug'
+  command "pecl install xdebug=#{node['php']['xdebug']['version']}"
   not_if 'pecl list | grep xdebug'
 end
 
