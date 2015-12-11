@@ -25,6 +25,7 @@ end
 git '/tmp/phpredis' do
   repository node['phpredis']['url']
   revision node['phpredis']['revision']
+  branch node['phpredis']['branch']
   action :sync
   not_if 'php -m | grep redis'
 end

@@ -39,11 +39,11 @@ action :add do
       value_overrides: new_resource.value_overrides,
       env_overrides: new_resource.env_overrides
     )
-    notifies :restart, 'service[php5-fpm]' unless node['php']['fpm']['containerize']
+    notifies :restart, "service[#{node['php']['fpm']['service-name']}]" unless node['php']['fpm']['containerize']
     mode 00644
   end
 
-  service 'php5-fpm' do
+  service node['php']['fpm']['service-name'] do
     action :nothing
   end
 
@@ -56,11 +56,11 @@ action :remove do
 
   a = file "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
     action :delete
-    notifies :restart, 'service[php5-fpm]'
+    notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
     not_if { node['php']['fpm']['containerize'] }
   end
 
-  service 'php5-fpm' do
+  service node['php']['fpm']['service-name'] do
     action :nothing
   end
 

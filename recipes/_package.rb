@@ -6,8 +6,8 @@
 include_recipe 'apt'
 include_recipe 'dotdeb' if node['platform'] == 'debian'
 
-if node['php']['version'] == '5.6'
-  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu'
+if node['php']['version'] == '5.6' || node['php']['version'] == '7.0'
+  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php/ubuntu'
 else
   apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
 end
@@ -51,12 +51,12 @@ directory node['php']['upload_dir'] do
   action :create
 end
 
-template '/etc/cron.d/php5' do
-  source 'php5.cron.erb'
+template '/etc/cron.d/php' do
+  source 'php.cron.erb'
   owner 'root'
   group 'root'
   variables(
-    maxlifetime_script: '/usr/lib/php5/maxlifetime'
+    maxlifetime_script: '/usr/lib/php/maxlifetime'
   )
   mode 00644
 end

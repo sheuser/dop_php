@@ -39,6 +39,3 @@ end
 link "#{node['php']['conf_dir']}/conf.d/20-oauth.ini" do
   to "#{node['php']['fpm']['mods_dir']}/oauth.ini"
 end
-
-package 'liboauth-php'
-package 'liboauth-dev'

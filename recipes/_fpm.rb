@@ -17,7 +17,7 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php.ini" do
   source 'php.ini.erb'
   owner 'root'
   group 'root'
-  notifies :restart, 'service[php5-fpm]'
+  notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
   mode 0644
   variables(php: node['php']['php_ini'])
 end
@@ -29,7 +29,7 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php-fpm.conf" do
   group 'root'
   mode 0644
   variables(phpfpm: node['php']['fpm']['conf'])
-  notifies :restart, 'service[php5-fpm]'
+  notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
 end
 
 # For the pool log files
@@ -49,13 +49,7 @@ template node['php']['fpm']['rotfile'] do
 end
 
 # Since we do not have any pool files we do not attempt to start the service
-service 'php5-fpm' do
-  case node['platform']
-  when 'ubuntu'
-    if node['platform_version'].to_f >= 9.10
-      provider Chef::Provider::Service::Upstart
-    end
-  end
+service node['php']['fpm']['service-name'] do
   supports start: true, stop: true, reload: true, restart: true, status: true
   action [:enable]
 end

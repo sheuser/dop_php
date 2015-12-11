@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 3.0.0 (Unreleased)
+
+* add php7 support
+
 ## 2.0.7 (November 10, 2015)
 
 * unpin xdebug version

@@ -29,13 +29,17 @@ suites:
 - name: default
   run_list:
     - recipe[php::default]
-    - recipe[php::ioncube]
-    - recipe[php::oauth]
     - recipe[php::predis]
     - recipe[php::xdebug]
-    - recipe[php::gnupg]
   attributes:
+    dotdeb:
+      php_version: '7.0'
     php:
       xdebug:
+        enabled: 'true'
         cli:
-          enabled: "true"
+          enabled: 'true'
+    redisio:
+      version: '3.0.5'
+      checksum: '4c176826eee909fbdc63db1c15adc22aab42d758043829e556f4331e6a5bd480'
+      safe_install: false

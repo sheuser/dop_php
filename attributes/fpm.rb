@@ -14,6 +14,7 @@ default['php']['fpm']['user'] = 'www-data'
 default['php']['fpm']['group'] = 'www-data'
 default['php']['fpm']['rotfile'] = '/etc/logrotate.d/php5-fpm'
 default['php']['fpm']['create_pool'] = false
+default['php']['fpm']['service-name'] = 'php5-fpm'
 
 default['php']['ini']['directives']['fpm'] = node['php']['fpm']['conf']
 
