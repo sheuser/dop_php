@@ -8,7 +8,7 @@ node.default['php']['ext_conf_dir'] = '/etc/php/7.0/conf.d'
 
 # php7.0 seems to come with a already embedded mcrypt module,
 # so adding php7.0-mcrypt as package will lead to
-# "PHP Warning: Module ‘mcrypt’ already loaded in Unknown on line 0"
+# PHP Warning: Module mcrypt already loaded in Unknown on line 0
 # as it will be loaded twice
 node.set['php']['packages'] = %w(
   php7.0-fpm
