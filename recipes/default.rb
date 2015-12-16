@@ -4,11 +4,11 @@
 #
 if node['php']['version'] == '7.0'
   include_recipe 'php::_php7'
-  include_recipe 'php::_pear'
 end
 include_recipe 'php::_package'
 include_recipe 'php::_fpm'
 include_recipe 'composer'
+include_recipe 'php::_pear'
 
 package 'libpcre3-dev'
 
