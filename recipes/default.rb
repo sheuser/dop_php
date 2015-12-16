@@ -2,7 +2,10 @@
 # Cookbook Name:: php
 # Recipe:: default
 #
-include_recipe 'php::_php7' if node['php']['version'] == '7.0'
+if node['php']['version'] == '7.0' do
+  include_recipe 'php::_php7'
+  include_recipe 'php::_pear'
+end
 include_recipe 'php::_package'
 include_recipe 'php::_fpm'
 include_recipe 'composer'

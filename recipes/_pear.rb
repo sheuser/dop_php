@@ -13,7 +13,7 @@ end
 execute 'install_pear' do
   command '/tmp/install-pear.sh'
   action :run
-  notifies :run, "execute[remove pear installer]", :delayed
+  notifies :run, 'execute[remove pear installer]', :delayed
 end
 
 execute 'remove pear installer' do
