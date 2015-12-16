@@ -5,7 +5,10 @@
 
 package 'expect'
 
-remote_file '/tmp/go-pear.phar' do
+src_filename = node['php']['pear']['filename']
+src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
+
+remote_file src_filepath do
   source node['php']['pear']['download_url']
   checksum node['php']['pear']['checksum']
   owner 'root'
@@ -14,20 +17,16 @@ remote_file '/tmp/go-pear.phar' do
   only_if { !File.exist?('/usr/bin/pear') }
 end
 
-cookbook_file '/tmp/install-pear.sh' do
+cookbook_file "#{Chef::Config['file_cache_path']}/install-pear.sh" do
   source 'install-pear.sh'
   mode 0755
   only_if { !File.exist?('/usr/bin/pear') }
 end
 
 execute 'install_pear' do
-  command '/tmp/install-pear.sh'
+  cwd Chef::Config['file_cache_path']
+  command "#{Chef::Config['file_cache_path']}/install-pear.sh"
   action :run
-  notifies :run, 'execute[remove pear installer]', :delayed
   only_if { !File.exist?('/usr/bin/pear') }
-end
-
-execute 'remove pear installer' do
-  command 'rm -f /tmp/install-pear.sh'
-  action :nothing
+  creates '/usr/bin/pear'
 end
