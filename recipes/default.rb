@@ -2,7 +2,7 @@
 # Cookbook Name:: php
 # Recipe:: default
 #
-if node['php']['version'] == '7.0' do
+if node['php']['version'] == '7.0'
   include_recipe 'php::_php7'
   include_recipe 'php::_pear'
 end
