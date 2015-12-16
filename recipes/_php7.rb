@@ -37,3 +37,5 @@ node.default['php']['fpm']['rotfile'] = "/etc/logrotate.d/#{node['php']['fpm']['
 node.default['php']['ini']['directives']['fpm'] = node['php']['fpm']['conf']
 node.default['php']['fpm']['conf']['global']['error_log'] = "#{node['php']['fpm']['log_dir']}/#{node['php']['fpm']['service-name']}.log"
 node.default['php']['fpm']['workers']['slow_filename'] = "#{node['php']['fpm']['log_dir']}/#{node['php']['fpm']['service-name']}-slow.log"
+
+include_recipe 'php::_pear'
