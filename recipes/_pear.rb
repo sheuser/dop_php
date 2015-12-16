@@ -7,7 +7,7 @@ package 'expect'
 
 cookbook_file '/tmp/install-pear.sh' do
   source 'install-pear.sh'
-  mode 755
+  mode 0755
 end
 
 execute 'install_pear' do
