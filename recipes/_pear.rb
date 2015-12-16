@@ -5,6 +5,15 @@
 
 package 'expect'
 
+remote_file '/tmp/go-pear.phar' do
+  source node['php']['pear']['download_url']
+  checksum node['php']['pear']['checksum']
+  owner 'root'
+  group 'root'
+  mode 00755
+  only_if { !File.exist?('/usr/bin/pear') }
+end
+
 cookbook_file '/tmp/install-pear.sh' do
   source 'install-pear.sh'
   mode 0755

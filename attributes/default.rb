@@ -66,6 +66,9 @@ default['php']['php_ini']['opcache']['opcache.enable_cli'] = 0
 # compatibility
 default['php']['ini']['directives']['global']['max_execution_time'] = node['php']['php_ini']['php']['max_execution_time']
 
+default['php']['pear']['download_url'] = 'http://pear.php.net/go-pear.phar'
+default['php']['pear']['checksum'] = '3783740c4f2349919245abd756750f5879246b503c561659cc64489f0b43c582'
+
 include_attribute 'php::ioncube'
 include_attribute 'php::redis'
 include_attribute 'php::opcache'
