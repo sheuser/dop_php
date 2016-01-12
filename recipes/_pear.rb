@@ -11,9 +11,6 @@ src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
 remote_file src_filepath do
   source node['php']['pear']['download_url']
   checksum node['php']['pear']['checksum']
-  owner 'root'
-  group 'root'
-  mode 00755
   only_if { !File.exist?('/usr/bin/pear') }
 end
 
