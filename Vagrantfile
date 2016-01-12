@@ -61,13 +61,12 @@ Vagrant.configure('2') do |config|
             'enabled' => true
           }
         }
-      }
+      },
       'redisio' => {
         'version' => '3.0.6',
         'checksum' => '6f1e1523194558480c3782d84d88c2decf08a8e4b930c56d4df038e565b75624',
         'safe_install' => false
-      },
-      
+      }
     }
   end
 end
