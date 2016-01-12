@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 2.0.8 (January 12, 2016)
+
+* pin oauth version (stick to php5 compatibility) NOTE: there's already a php7 branch
+
 ## 2.0.7 (November 10, 2015)
 
 * unpin xdebug version

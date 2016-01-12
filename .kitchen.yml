@@ -11,15 +11,15 @@ platforms:
 - name: debian-7.9.0-amd64
   driver_plugin: vagrant
   driver_config:
-    box: debian-7.9.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/boxes/debian-7.8.0-amd64
+    box: ffuenf/debian-7.9.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-7.9.0-amd64
     box_check_update: true
 
 - name: ubuntu-14.04.3-server-amd64
   driver_plugin: vagrant
   driver_config:
-    box: ubuntu-14.04.3-server-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/boxes/ubuntu-14.04.3-server-amd64
+    box: ffuenf/ubuntu-14.04.3-server-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.3-server-amd64
     box_check_update: true
 
 - name: debian-7-0-x64
@@ -46,7 +46,6 @@ suites:
 - name: default
   run_list:
     - recipe[php::default]
-    - recipe[php::ioncube]
     - recipe[php::oauth]
     - recipe[php::predis]
     - recipe[php::xdebug]
@@ -56,3 +55,7 @@ suites:
       xdebug:
         cli:
           enabled: "true"
+    redisio:
+      version: '3.0.6'
+      checksum: '6f1e1523194558480c3782d84d88c2decf08a8e4b930c56d4df038e565b75624'
+      safe_install: false

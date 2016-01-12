@@ -11,11 +11,12 @@ php_pear_channel 'pecl.php.net' do
 end
 
 php_pear 'oauth' do
+  version '1.2.3' # stick to php5 compatibility
   action :install
   not_if 'php -m | grep oauth'
 end
 execute 'install-oauth' do
-  command 'pecl install oauth'
+  command 'pecl install oauth-1.2.3'
   not_if 'pecl list | grep oauth'
 end
 
