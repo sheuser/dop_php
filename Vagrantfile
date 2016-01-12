@@ -21,7 +21,7 @@ Vagrant.configure('2') do |config|
   config.vm.network 'private_network', ip: '10.0.0.50'
 
   # basebox
-  config.vm.box = 'ffuenf/debian-7.8.0-amd64'
+  config.vm.box = 'ffuenf/debian-7.9.0-amd64'
 
   # virtualbox options
   config.vm.provider 'virtualbox' do |v|
@@ -45,12 +45,11 @@ Vagrant.configure('2') do |config|
   end
 
   # Configure Chef Solo provisioner
-  config.vm.provision 'chef_zero' do |chef|
+  config.vm.provision 'chef_solo' do |chef|
     chef.provisioning_path = '/tmp/vagrant-chef-solo'
     chef.file_cache_path = chef.provisioning_path
     chef.cookbooks_path = ['.chef/cookbooks']
     chef.add_recipe 'php'
-    chef.add_recipe 'php::ioncube'
     chef.add_recipe 'php::oauth'
     chef.add_recipe 'php::predis'
     chef.add_recipe 'php::xdebug'
@@ -63,6 +62,12 @@ Vagrant.configure('2') do |config|
           }
         }
       }
+      'redisio' => {
+        'version' => '3.0.6',
+        'checksum' => '6f1e1523194558480c3782d84d88c2decf08a8e4b930c56d4df038e565b75624',
+        'safe_install' => false
+      },
+      
     }
   end
 end
