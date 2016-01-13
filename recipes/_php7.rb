@@ -6,10 +6,6 @@ node.set['php']['dir'] = '/etc/php'
 node.set['php']['conf_dir'] = '/etc/php/7.0/cli'
 node.set['php']['ext_conf_dir'] = '/etc/php/7.0/conf.d'
 
-# php7.0 seems to come with a already embedded mcrypt module,
-# so adding php7.0-mcrypt as package will lead to
-# PHP Warning: Module mcrypt already loaded in Unknown on line 0
-# as it will be loaded twice
 node.set['php']['packages'] = %w(
   php7.0-fpm
   php7.0-cli
@@ -22,6 +18,7 @@ node.set['php']['packages'] = %w(
   php7.0-mysql
   php7.0-opcache
   php7.0-pspell
+  php7.0-mcrypt
 )
 node.set['php']['fpm']['service-name'] = 'php7.0-fpm'
 node.set['php']['fpm']['dir'] = "#{node['php']['dir']}/7.0/fpm"
