@@ -238,32 +238,26 @@ def grep_for_version(stdout, package)
     # Horde_Url -n/a-/(1.0.0beta1 beta)       Horde Url class
     # Horde_Url 1.0.0beta1 (beta) 1.0.0beta1 Horde Url class
     v = m.split(/\s+/)[1].strip
-    if v.split(/\//)[0] =~ /.\./
-      # 1.1.4/(1.1.4 stable)
-      v = v.split(/\//)[0]
-    else
-      # -n/a-/(1.0.0beta1 beta)
-      v = v.split(/(.*)\/\((.*)/).last.split(/\s/)[0]
-    end
+    v = (v.split(/\//)[0] =~ /.\./) ? v.split(/\//)[0] : v.split(/(.*)\/\((.*)/).last.split(/\s/)[0]
   end
   v
 end
 
 def pecl?
   @pecl ||=
-  begin
-    # search as a pear first since most 3rd party channels will report pears as pecls!
-    search_args = ''
-    search_args << " -d preferred_state=#{can_haz(@new_resource, 'preferred_state')}"
-    search_args << " search#{expand_channel(can_haz(@new_resource, 'channel'))} #{@new_resource.package_name}"
-    if grep_for_version(shell_out('pear ' + search_args).stdout, @new_resource.package_name)
-      false
-    elsif grep_for_version(shell_out('pecl' + search_args).stdout, @new_resource.package_name)
-      true
-    else
-      fail "Package #{@new_resource.package_name} not found in either PEAR or PECL."
+    begin
+      # search as a pear first since most 3rd party channels will report pears as pecls!
+      search_args = ''
+      search_args << " -d preferred_state=#{can_haz(@new_resource, 'preferred_state')}"
+      search_args << " search#{expand_channel(can_haz(@new_resource, 'channel'))} #{@new_resource.package_name}"
+      if grep_for_version(shell_out('pear ' + search_args).stdout, @new_resource.package_name)
+        false
+      elsif grep_for_version(shell_out('pecl' + search_args).stdout, @new_resource.package_name)
+        true
+      else
+        raise "Package #{@new_resource.package_name} not found in either PEAR or PECL."
+      end
     end
-  end
 end
 
 # TODO: remove when provider is moved into Chef core

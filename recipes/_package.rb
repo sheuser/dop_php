@@ -6,11 +6,8 @@
 include_recipe 'apt'
 include_recipe 'dotdeb' if node['platform'] == 'debian'
 
-if node['php']['version'] == '5.6' || node['php']['version'] == '7.0'
-  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php/ubuntu'
-else
-  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
-end
+apt_repo_uri = (node['php']['version'] == '5.6' || node['php']['version'] == '7.0') ? 'http://ppa.launchpad.net/ondrej/php/ubuntu' : 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
+
 apt_repository 'php' do
   uri apt_repo_uri
   distribution node['lsb']['codename']
