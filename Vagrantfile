@@ -59,8 +59,8 @@ Vagrant.configure('2') do |config|
         'php_version' => '7.0'
       },
       'redisio' => {
-        'version' => '3.0.5',
-        'checksum' => '4c176826eee909fbdc63db1c15adc22aab42d758043829e556f4331e6a5bd480',
+        'version' => '3.0.7',
+        'checksum' => 'b2a791c4ea3bb7268795c45c6321ea5abcc24457178373e6a6e3be6372737f23',
         'safe_install' => false
       },
       'php' => {

@@ -1,6 +1,6 @@
 <% 
 def ext_dir
-  cmd = Mixlib::ShellOut.new('pecl config-get ext_dir')
+  cmd = Mixlib::ShellOut.new("php -i | awk -F '=> ' '/extension_dir/{print $3}'")
   cmd.run_command
   cmd.error!
   cmd.stdout.strip
