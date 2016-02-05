@@ -19,6 +19,7 @@ node.set['php']['packages'] = %w(
   php7.0-opcache
   php7.0-pspell
   php7.0-mcrypt
+  php7.0-ldap
 )
 node.set['php']['fpm']['service-name'] = 'php7.0-fpm'
 node.set['php']['fpm']['dir'] = "#{node['php']['dir']}/7.0/fpm"

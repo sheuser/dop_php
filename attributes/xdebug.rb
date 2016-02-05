@@ -1,7 +1,11 @@
 # # # # # #
 # xdebug  #
 # # # # # #
-default['php']['xdebug']['version'] = 'latest'
+default['php']['xdebug']['version'] = '2.4.0rc4'
+default['php']['xdebug']['filename'] = "xdebug-#{node['php']['xdebug']['version']}"
+default['php']['xdebug']['checksum'] = '55f8c906d8e7413c872e91db599082f18c3e49c736adf977333cd313fae635e8'
+default['php']['xdebug']['download_url'] = "https://xdebug.org/files/#{node['php']['xdebug']['filename']}.tgz"
+
 default['php']['xdebug']['enabled'] = false
 default['php']['xdebug']['cli']['enabled'] = false
 
