@@ -13,7 +13,6 @@ end
 %w(
   apt
   git
-  php
   build-essential
   dotdeb
   composer
