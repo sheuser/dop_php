@@ -20,5 +20,5 @@ end
 
 # pear
 execute 'upgrade-pear' do
-  command 'pear upgrade pear | cat' # piping through cat appears to be the only sane way of stopping pear returning exit code 1 on no upgrade
+  command 'pear channel-update pear.php.net | cat' # piping through cat appears to be the only sane way of stopping pear returning exit code 1 on no upgrade
 end
