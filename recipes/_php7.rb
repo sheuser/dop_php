@@ -23,6 +23,7 @@ node.set['php']['packages'] = if platform?('ubuntu')
                                   php7.0-ldap
                                   php7.0-xml
                                   php7.0-soap
+                                  php7.0-mbstring
                                 )
                               else
                                 node.set['php']['packages'] = %w(
