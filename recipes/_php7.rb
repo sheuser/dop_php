@@ -6,42 +6,42 @@ node.set['php']['dir'] = '/etc/php'
 node.set['php']['conf_dir'] = '/etc/php/7.0/cli'
 node.set['php']['ext_conf_dir'] = '/etc/php/7.0/conf.d'
 
-if platform?('ubuntu')
-  node.set['php']['packages'] = %w(
-    php7.0-fpm
-    php7.0-cli
-    php7.0-dev
-    php7.0-curl
-    php7.0-gd
-    php7.0-imap
-    php7.0-intl
-    php7.0-json
-    php7.0-mysql
-    php7.0-opcache
-    php7.0-pspell
-    php7.0-mcrypt
-    php7.0-ldap
-    php7.0-xml
-    php7.0-soap
-  )
-else
-  node.set['php']['packages'] = %w(
-    php7.0-fpm
-    php7.0-cli
-    php7.0-dev
-    php7.0-curl
-    php7.0-gd
-    php7.0-imap
-    php7.0-intl
-    php7.0-json
-    php7.0-mysql
-    php7.0-opcache
-    php7.0-pspell
-    php7.0-mcrypt
-    php7.0-ldap
-    php7.0-xml
-  )
-end
+node.set['php']['packages'] = if platform?('ubuntu')
+                                %w(
+                                  php7.0-fpm
+                                  php7.0-cli
+                                  php7.0-dev
+                                  php7.0-curl
+                                  php7.0-gd
+                                  php7.0-imap
+                                  php7.0-intl
+                                  php7.0-json
+                                  php7.0-mysql
+                                  php7.0-opcache
+                                  php7.0-pspell
+                                  php7.0-mcrypt
+                                  php7.0-ldap
+                                  php7.0-xml
+                                  php7.0-soap
+                                )
+                              else
+                                node.set['php']['packages'] = %w(
+                                  php7.0-fpm
+                                  php7.0-cli
+                                  php7.0-dev
+                                  php7.0-curl
+                                  php7.0-gd
+                                  php7.0-imap
+                                  php7.0-intl
+                                  php7.0-json
+                                  php7.0-mysql
+                                  php7.0-opcache
+                                  php7.0-pspell
+                                  php7.0-mcrypt
+                                  php7.0-ldap
+                                  php7.0-xml
+                                )
+                              end
 node.set['php']['fpm']['service-name'] = 'php7.0-fpm'
 node.set['php']['fpm']['dir'] = "#{node['php']['dir']}/7.0/fpm"
 node.set['php']['fpm']['ext_conf_dir'] = "#{node['php']['fpm']['dir']}/conf.d"
