@@ -12,7 +12,7 @@ end
 
 php_pear 'oauth' do
   action :install
-  not_if 'php -m | grep oauth'
+  not_if 'php -m | grep -i oauth'
 end
 execute 'install-oauth' do
   command 'pecl install oauth'
@@ -29,7 +29,7 @@ template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do
     zend: false,
     directives: []
   )
-  not_if 'php -m | grep oauth'
+  not_if 'php -m | grep -i oauth'
 end
 
 link "#{node['php']['fpm']['ext_conf_dir']}/20-oauth.ini" do
